@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/activity_form_nota_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryColor"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/form_nota_menu"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="@string/app_name" />
+
+    <ScrollView
+        android:id="@+id/activity_form_nota_scrollview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/activity_form_nota_adicionar_imagem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_form_nota_toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.activity.FormNotaActivity">
+
+            <ImageView
+                android:id="@+id/activity_form_nota_imagem"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/imagem_padrao"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <EditText
+                android:id="@+id/activity_form_nota_titulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@android:color/transparent"
+                android:gravity="top"
+                android:hint="Título"
+                android:minHeight="48dp"
+                android:textSize="32sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_form_nota_imagem"
+                tools:text="@tools:sample/lorem[10]" />
+
+            <EditText
+                android:id="@+id/activity_form_nota_descricao"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@android:color/transparent"
+                android:gravity="top"
+                android:hint="Descrição"
+                android:minHeight="300dp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_form_nota_titulo"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="@tools:sample/lorem[120]" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/activity_form_nota_adicionar_imagem"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Adicionar imagem"
+        android:src="@drawable/ic_action_adicionar_imagem"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_form_nota_scrollview"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

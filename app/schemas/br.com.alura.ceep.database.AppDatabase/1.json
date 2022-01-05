@@ -1,0 +1,52 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "be6c540afd3b0f00d558d25441111419",
+    "entities": [
+      {
+        "tableName": "Nota",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `titulo` TEXT NOT NULL, `descricao` TEXT NOT NULL, `imagem` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "titulo",
+            "columnName": "titulo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descricao",
+            "columnName": "descricao",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imagem",
+            "columnName": "imagem",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'be6c540afd3b0f00d558d25441111419')"
+    ]
+  }
+}
