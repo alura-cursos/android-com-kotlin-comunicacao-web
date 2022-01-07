@@ -4,7 +4,7 @@ App que permite criar, editar, remover e listar notas
 
 ## 🧪 Projeto em desenvolvimento
 
-![amostra do projeto](https://user-images.githubusercontent.com/8989346/148266089-c7592a2a-fb7d-48b0-b214-f3555b29fa25.png)
+![Amostra do projeto](https://user-images.githubusercontent.com/8989346/148591918-ba213c8a-53dd-448d-910b-6f1a1170ebd5.gif)
 
 ## 📁 Acesso ao projeto
 
