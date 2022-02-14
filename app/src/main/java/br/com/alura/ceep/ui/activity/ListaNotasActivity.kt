@@ -14,11 +14,13 @@ import br.com.alura.ceep.databinding.ActivityListaNotasBinding
 import br.com.alura.ceep.extensions.vaiPara
 import br.com.alura.ceep.model.Nota
 import br.com.alura.ceep.ui.recyclerview.adapter.ListaNotasAdapter
+import br.com.alura.ceep.webclient.NotaWebClient
 import br.com.alura.ceep.webclient.RetrofitInicializador
 import br.com.alura.ceep.webclient.model.NotaResposta
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 
@@ -33,6 +35,9 @@ class ListaNotasActivity : AppCompatActivity() {
     private val dao by lazy {
         AppDatabase.instancia(this).notaDao()
     }
+    private val webClient by lazy {
+        NotaWebClient()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,18 +45,10 @@ class ListaNotasActivity : AppCompatActivity() {
         configuraFab()
         configuraRecyclerView()
         lifecycleScope.launch {
+            val notas = webClient.buscaTodas()
+            Log.i("ListaNotas", "onCreate: retrofit coroutines $notas")
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 buscaNotas()
-            }
-        }
-        lifecycleScope.launch(IO) {
-            val call: Call<List<NotaResposta>> = RetrofitInicializador().notaService.buscaTodas()
-            val resposta: Response<List<NotaResposta>> = call.execute()
-            resposta.body()?.let { notasResposta ->
-                val notas: List<Nota> = notasResposta.map {
-                    it.nota
-                }
-                Log.i("ListaNotas", "onCreate: $notas")
             }
         }
     }
