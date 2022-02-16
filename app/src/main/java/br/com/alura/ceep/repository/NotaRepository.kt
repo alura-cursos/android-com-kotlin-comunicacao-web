@@ -27,8 +27,10 @@ private val webClient: NotaWebClient) {
     }
 
     suspend fun remove(id: String) {
-        dao.remove(id)
-        webClient.remove(id)
+        dao.desativa(id)
+        if(webClient.remove(id)) {
+            dao.remove(id)
+        }
     }
 
     suspend fun salva(nota: Nota) {
@@ -40,6 +42,10 @@ private val webClient: NotaWebClient) {
     }
 
     suspend fun sincroniza() {
+        val notasDesativadas = dao.buscaDesativadas().first()
+        notasDesativadas.forEach { notaDesativada ->
+            remove(notaDesativada.id)
+        }
         val notasNaoSincronizadas = dao.buscaNaoSincronizadas().first()
         notasNaoSincronizadas.forEach { notaNaoSincronizada ->
             salva(notaNaoSincronizada)
