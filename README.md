@@ -1,42 +1,44 @@
+![thumbnail](https://user-images.githubusercontent.com/8989346/154557488-2185e055-6dc0-4bed-81d1-7b4fca676db5.png)
+
 # Ceep 
 
-App que permite criar, editar, remover e listar notas
-
-## 🧪 Projeto em desenvolvimento
-
-![projeto-inicial-ceep](https://user-images.githubusercontent.com/8989346/149510885-e5a35c6f-1499-4688-a815-bfd90b268a4b.gif)
-
-## 📁 Acesso ao projeto
-
-Você pode acompanhar a evolução do projeto a partir da [branch dev](https://github.com/alexfelipe/Android-com-Kotlin-ceep/tree/dev). 
-
-<!-- 
+App que permite criar, alterar, remover e visualizar notas em uma lista no formato de grid.
 
 ## 🔨 Funcionalidades do projeto
 
-A partir do Orgs você pode cadastrar, alterar, remover e listar produtos.
+O Ceep permite criar notas com título, descrição e imagem. Também, todas as alterações realizadas, são armazenadas em uma Web API dedicada que pode ser utilizada a [partir deste projeto](https://github.com/alura-cursos/ceep-web-api). 
 
-Se possível, apresente um exemplo visual do projeto, seja gif, imagens ou vídeo, abaixo segue um exemplo:
+Além de realizar a integração com a Web API, o App também realiza um mecanismo de sincronização, permitindo que as pessoas alterem as notas sem acesso a internet, e então, após obter acesso a rede, é possível reenviar todas as alterações, seja inserção, alteração ou remoção de notas.
 
-![](https://github.com/alura-cursos/android-com-kotlin-personalizando-ui/raw/master/img/amostra.gif)
+![projeto-inicial-ceep](https://user-images.githubusercontent.com/8989346/149510885-e5a35c6f-1499-4688-a815-bfd90b268a4b.gif)
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
-**Faça uma lista de tecnologias e técnicas utilizadas (a justificativa e descrição são opcionais)**:
+As técnicas e tecnologias utilizadas no projeto foram:
 
-- `Funcionalidade 1`: descrição da funcionalidade 1
-- `Funcionalidade 2`: descrição da funcionalidade 2
-  - `Funcionalidade 2a`: descrição da funcionalidade 2a relacionada à funcionalidade 2
-- `Funcionalidade 3`: descrição da funcionalidade 3
+- `Room`: armazenar os dados em banco de dados
+- `RecyclerView`: listagem das notas em grid
+- `ConstraintLayout`: ViewGroup para implementar layouts
+- `Retrofit`: cliente HTTP para realizar requisições Web via HTTP
+- `Coroutines`: realizar operações assíncronas, como acesso ao banco de dados ou comunicação HTTP
+- `Repositórios`: manter todos os códigos que acessa a fonte de dados
+- `UUID`: gerar ids "únicos" e descentralizados
+- `flags`: sinalizações para identificar estados de objetos, como ativos/desativados.
+- `Migrations`: modificar a estrutura atual do banco de dados para atender novas necessidades
+- `Coil`: carregar imagens a partir de URLs
+- `View Binding`: buscar views do layout de forma segura
 
 ## 📁 Acesso ao projeto
 
-**Indique como é possível baixar ou acessar o código fonte do projeto, seja projeto inicial ou final**
+Você pode acessar o código [fonte do projeto inicial](https://github.com/alura-cursos/android-com-kotlin-comunicacao-web/tree/projeto-inicial) ou [baixá-lo](https://github.com/alura-cursos/android-com-kotlin-comunicacao-web/archive/refs/heads/projeto-inicial.zip). 
+
 
 ## 🛠️ Abrir e rodar o projeto
 
-**Apresente as instruções necessárias para abrir e executar o projeto**
+Após baixar o projeto, você pode abrir com o Android Studio. Para isso, na tela de launcher clique em:
 
-## 📚 Mais informações do curso
+- **Open an Existing Project** (ou alguma opção similar)
+- Procure o local onde o projeto está e o selecione (Caso o projeto seja baixado via zip, é necessário extraí-lo antes de procurá-lo)
+- Por fim clique em OK
 
-**Faça um CTA (_call to action_) para o curso do projeto**
+O Android Studio deve executar algumas tasks do Gradle para configurar o projeto, aguarde até finalizar. Ao finalizar as tasks, você pode executar o App 🏆 
